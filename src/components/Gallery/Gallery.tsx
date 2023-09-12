@@ -24,8 +24,8 @@ const Gallery = () => {
             srcSet: image.srcset,
             thumbnail: `${image.src}-/resize/250x/`,
             originalAlt: image.alt || `lineups-demo-image-${idx + 1}`,
-            loading: "lazy",
-            thumbnailLoading: "lazy",
+            loading: "eager",
+            thumbnailLoading: "eager",
         } as ReactImageGalleryItem));
         setImages(images);
     }, [])
@@ -36,22 +36,18 @@ const Gallery = () => {
 
     return (
         <div>
-            {images.length ? (
-                <>
-                    <div>Loaded {images.length} images</div>
-                    <ImageGallery
-                        items={images}
-                        lazyLoad={!loaded}
-                        showNav={loaded}
-                        showPlayButton={loaded}
-                        showThumbnails={loaded}
-                        showFullscreenButton={loaded}
-                        thumbnailPosition="bottom"
-                        onImageLoad={() => setLoaded(true)}
-                    />
-                    {!loaded && <div>Loading...</div>}
-                </>
-            ) : <div>Loading...</ div>}
+            {loaded && <div>Loaded {images.length} images</div>}
+            <ImageGallery
+                items={images}
+                lazyLoad={!loaded}
+                showNav={loaded}
+                showPlayButton={loaded}
+                showThumbnails={loaded}
+                showFullscreenButton={loaded}
+                thumbnailPosition="bottom"
+                onImageLoad={() => setLoaded(true)}
+            />
+            {!loaded && <div>Loading...</div>}
         </div>
     )
 }
