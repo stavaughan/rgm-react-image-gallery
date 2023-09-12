@@ -39,7 +39,6 @@ const Gallery = () => {
             {images.length ? (
                 <>
                     <div>Loaded {images.length} images</div>
-                    {!loaded && <div>Loading...</div>}
                     <ImageGallery
                         items={images}
                         lazyLoad={!loaded}
@@ -50,8 +49,9 @@ const Gallery = () => {
                         thumbnailPosition="bottom"
                         onImageLoad={() => setLoaded(true)}
                     />
+                    {!loaded && <div>Loading...</div>}
                 </>
-            ) : <div>0 images returned...</ div>}
+            ) : <div>Loading...</ div>}
         </div>
     )
 }
