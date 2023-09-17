@@ -3,9 +3,11 @@ import ImageGallery from "react-image-gallery";
 import type { ReactImageGalleryItem } from "react-image-gallery";
 import type { Image } from './Gallery.types'
 
-const API_URI = import.meta.env.VITE_API_URI as string
+const VITE_API_URI = import.meta.env.VITE_API_URI as string
 
 const Gallery = () => {
+
+    const API_URI = VITE_API_URI || 'https://lineups-api.com/pro/api/apartments/5cdd743acbc13b00043ef391/tour-path/Default'
 
     const [loaded, setLoaded] = useState(false)
 
