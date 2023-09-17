@@ -3,10 +3,9 @@ import ImageGallery from "react-image-gallery";
 import type { ReactImageGalleryItem } from "react-image-gallery";
 import type { Image } from './Gallery.types'
 
-const Gallery = () => {
+const API_URI = import.meta.env.VITE_API_URI as string
 
-    const APTID = "5cdd743acbc13b00043ef391"
-    const API_URI = `https://lineups-api.com/pro/api/apartments/${APTID}/tour-path/Default`
+const Gallery = () => {
 
     const [loaded, setLoaded] = useState(false)
 
@@ -22,8 +21,8 @@ const Gallery = () => {
         const images = data.images.map((image: Image, idx: number) => ({
             original: image.src,
             srcSet: image.srcset,
-            thumbnail: `${image.src}-/resize/250x/`,
-            originalAlt: image.alt || `lineups-demo-image-${idx + 1}`,
+            thumbnail: image.thumbnail || `${image.src}-/resize/250x/`,
+            originalAlt: image.alt || `demo-image-${idx + 1}`,
             loading: "eager",
             thumbnailLoading: "eager",
         } as ReactImageGalleryItem));
