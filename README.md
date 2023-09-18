@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to dam-demo-gallery! This is a demo app showcasing an image gallery using `react-image-gallery`. The primary goal is to demonstrate how effortlessly you can consume image data from the 'Lineups API' and represent a commercial user's personal image gallery.
+This is a demo app showcasing an image gallery using `react-image-gallery`. The primary goal is to demonstrate how effortlessly you can consume image data from the 'Lineups API' and represent a commercial user's personal image gallery.
 
 ## Getting Started
 
